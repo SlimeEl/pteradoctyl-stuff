@@ -9,7 +9,7 @@ LABEL       author="Michael Parker" maintainer="docker@parkervcp.com"
 
 RUN         set -eux; \
 			apk add --no-cache --update git \
-				imagemagick build-base python python-dev py-pip zlib-dev; \
+				imagemagick build-base python python-dev py-pip zlib-dev \
 				build-base \
 				openjdk8-jre \
 				unzip \
@@ -22,12 +22,13 @@ RUN         set -eux; \
 				imagemagick-dev \
 				ffmpeg \
 				ffmpeg-dev \
-			;
-            adduser -D -h /home/container container;
+			; \
+	    adduser -D -h /home/container container;
 
 USER        container
 ENV         USER=container HOME=/home/container
-ENV LIBRARY_PATH=/lib:/usr/lib
+ENV         LIBRARY_PATH=/lib:/usr/lib
+ENV         TMPDIR=$HOME/tmp
 
 WORKDIR     /home/container
 
