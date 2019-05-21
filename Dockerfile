@@ -28,7 +28,7 @@ RUN         set -eux; \
 USER        container
 ENV         USER=container HOME=/home/container
 ENV         LIBRARY_PATH=/lib:/usr/lib
-ENV         TMPDIR=/mnt/server/tmp
+ENV         TMPDIR=$HOME/tmp
 
 WORKDIR     /home/container
 
