@@ -22,6 +22,7 @@ RUN         set -eux; \
 				imagemagick-dev \
 				ffmpeg \
 				ffmpeg-dev \
+				py3-pillow \
 			; \
 	    adduser -D -h /home/container container;
 
