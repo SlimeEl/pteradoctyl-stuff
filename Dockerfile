@@ -9,7 +9,7 @@ LABEL       author="Michael Parker" maintainer="docker@parkervcp.com"
 
 RUN         set -eux; \
 			apk add --no-cache --update git \
-            imagemagick build-base python python-dev py-pip zlib-dev; \
+			imagemagick build-base python python-dev py-pip zlib-dev; \
 			build-base \
 			openjdk8-jre \
 			unzip \
