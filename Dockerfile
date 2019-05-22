@@ -3,7 +3,7 @@
 # Environment: Java (glibc support)
 # Minimum Panel Version: 0.6.0
 # ----------------------------------
-FROM        python:3-alpine
+FROM        python:3.7.3-alpine3.9
 
 LABEL       author="Michael Parker" maintainer="docker@parkervcp.com"
 
@@ -32,7 +32,7 @@ RUN set -eux; \
 		openssh-client \
 		linux-headers \
     ; \
-	    adduser -D -h /home/container container;
+	    adduser -D -h -u 1000 -g 1000 /home/container container;
 
 USER        container
 ENV         USER=container HOME=/home/container
