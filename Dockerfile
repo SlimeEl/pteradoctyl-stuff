@@ -7,23 +7,31 @@ FROM        python:3-alpine
 
 LABEL       author="Michael Parker" maintainer="docker@parkervcp.com"
 
-RUN         set -eux; \
-			apk add --no-cache --update git \
-				imagemagick build-base python python-dev py-pip zlib-dev \
-				build-base \
-				openjdk8-jre \
-				unzip \
-				freetype-dev \
-				libpng-dev \
-				jpeg-dev \
-				libxml2-dev \
-				libxslt-dev \
-				imagemagick \
-				imagemagick-dev \
-				ffmpeg \
-				ffmpeg-dev \
-				py3-pillow \
-			; \
+RUN set -eux; \
+        apk add --no-cache \
+# Redbot dependencies
+        build-base \
+        git \
+        unzip \
+# Popular cog dependencies (python)
+    # matplotlib
+        freetype-dev \
+        libpng-dev \
+    # pillow
+        jpeg-dev \
+    # lxml
+        libxml2-dev \
+        libxslt-dev \
+    # numpy
+        libc6-compat \
+# Popular cog dependencies (programs)
+        imagemagick \
+        imagemagick-dev \
+        ffmpeg \
+        ffmpeg-dev \
+		openssh-client \
+		linux-headers \
+    ;
 	    adduser -D -h /home/container container;
 
 USER        container
