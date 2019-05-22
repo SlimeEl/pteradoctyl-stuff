@@ -31,7 +31,7 @@ RUN set -eux; \
         ffmpeg-dev \
 		openssh-client \
 		linux-headers \
-    ;
+    ; \
 	    adduser -D -h /home/container container;
 
 USER        container
