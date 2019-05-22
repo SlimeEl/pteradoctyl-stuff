@@ -32,8 +32,10 @@ RUN set -eux; \
 		openssh-client \
 		linux-headers \
     ; \
-	    adduser -D -h -u 1000 -g 1000 /home/container container;
+	    adduser -D -h -u 1000 -G 1000 /home/container container;
 
+ENV	    PUID = 1000
+ENV         PGID = 1000
 USER        container
 ENV         USER=container HOME=/home/container
 ENV         LIBRARY_PATH=/lib:/usr/lib
